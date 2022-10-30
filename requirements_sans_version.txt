@@ -1,0 +1,7 @@
+numpy
+opencv-python==4.5.3.56
+pyrealsense2
+kivy
+pynput
+tensorflow
+oscpy

@@ -1,0 +1,19 @@
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/3bf863cc.pub
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
+sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
+sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /"
+sudo apt-get update
+sudo apt install nvidia-cuda-toolkit
+
+sudo apt install python3-pip python3-venv python3.dev xclip
+python3 -m pip install --upgrade pip
+
+sudo apt-key adv --keyserver keys.gnupg.net --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE || sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE
+sudo apt install software-properties-common
+sudo add-apt-repository "deb https://librealsense.intel.com/Debian/apt-repo focal main" -u
+sudo apt install librealsense2-dkms librealsense2
+
+cd /media/data/3D/projets/grande_echelle_pytorch_move
+source mon_env/bin/activate
+python3 -m pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
+python3 -m pip install -r requirements_tour_1060.txt
